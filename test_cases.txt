@@ -1,0 +1,54 @@
+BANK TRANSACTION VALIDATOR - PS NO. 27
+Student: Suhana Raj | ERP ID: RU-26-00162 | Section: BCA 1B
+
+INSTRUCTIONS:
+Copy ONLY the transaction input lines under one test case
+into transactions.txt. Do not copy headings or expected output.
+
+============================================================
+TEST CASE 1: NORMAL INPUT
+============================================================
+Deposit,5000
+Withdraw,2000
+
+EXPECTED OUTPUT:
+Line 1: Valid | Balance: 15000
+Line 2: Valid | Balance: 13000
+Valid: 2 | Invalid: 0 | Final balance: 13000
+
+============================================================
+TEST CASE 2: BOUNDARY / MINIMUM INPUT
+============================================================
+Withdraw,10000
+
+EXPECTED OUTPUT:
+Line 1: Valid | Balance: 0
+Valid: 1 | Invalid: 0 | Final balance: 0
+
+============================================================
+TEST CASE 3: INVALID INPUT
+============================================================
+Withdraw,20000
+Deposit,-500
+Transfer,100
+Deposit,abc
+
+EXPECTED OUTPUT:
+Line 1: Invalid – insufficient balance.
+Line 2: Invalid – amount must be positive.
+Line 3: Invalid – unknown type 'Transfer'.
+Line 4: Invalid – amount 'abc' is not a number.
+Valid: 0 | Invalid: 4 | Final balance: 10000
+
+============================================================
+TEST CASE 4: DIFFERENT VALID SCENARIO
+============================================================
+Deposit,150000
+Deposit,50000
+Withdraw,60000
+
+EXPECTED OUTPUT:
+Line 1: Invalid – exceeds limit of 100000.
+Line 2: Valid | Balance: 60000
+Line 3: Valid | Balance: 0
+Valid: 2 | Invalid: 1 | Final balance: 0
